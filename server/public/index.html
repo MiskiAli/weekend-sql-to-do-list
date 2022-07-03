@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My list</title>
+    <script type="text/javascript" src="vendors/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
@@ -12,8 +15,22 @@
     </header>
     <main>
 <input typ="text" placeholder="Enter your task" id="task">
-<!-- <input type="text" placeholder=" -->
-
+<input type="date" placeholder="Date" id="date">
+<input type="time" placeholder="Time" id="time">
+<input type="text" placeholder="Notes" id="notes">
+<button type="button" id="submit">Add to List</button>
+<h2></h2>
+<table>
+    <thead>
+    <tr>
+        <th>Task</th>
+        <th>Date and Time</th>
+        <th>Notes</th>
+    </tr>
+    </thead>
+    <tbody id="listTable">
+    </tbody>
+</table>
     </main>
 </body>
 </html>
