@@ -1,0 +1,33 @@
+body{
+    background-color: rgb(233, 202, 250);
+    font-family: sans-serif;
+}
+header {
+    background-color:  rgb(233, 175, 242);
+    flex-flow: row wrap;
+    display: flex;
+    align-items:flex-start;
+}
+input{
+background-color: rgb(190, 220, 251);
+}
+table {
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    width: 15%;
+    padding: 10px;
+}
+
+th{
+    background-color: rgb(126, 9, 162);
+    color: rgb(253, 200, 247);
+}
+
+tbody tr:nth-child(even){
+    background-color: rgb(190, 220, 251);
+}
+button{
+    background-color: rgb(190, 220, 251);;
+}
