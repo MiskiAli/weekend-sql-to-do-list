@@ -8,8 +8,8 @@ function onReady() {
 
 function clickHandler(){
 $('#submit').on('click', addToDoListBtn)
-$('#listTable').on('click', completedBtn);
-$('#listTable').on('click', deletedBtn); 
+$('#listTable').on('click', '.btnCompleted', completedBtn);
+$('#listTable').on('click', '.btnDelete', deleting); 
 }
 function addToDoListBtn() {
     console.log('Add To do list button clicked');
@@ -21,6 +21,8 @@ function addToDoListBtn() {
     addNewTask(tasks);
     tasks.name = $('#task').val('');
     tasks.notes = $('#notes').val('');
+    tasks.date = $('#date').val('');
+    tasks.time = $('#time').val('');
 }
 // GET request
 function getTask() {
@@ -61,8 +63,9 @@ function completedBtn() {
     method: 'PUT',
     url: `/tasks/${taskId}`,
     }).then(function () {
-        getTask();
         console.log('finished completedBtn');
+        getTask();
+
     }).catch(function (error) {
         alert('Error is in the completedBtn function', error);
     });
@@ -70,7 +73,7 @@ function completedBtn() {
 
 //DELETE request
 function deleting() {
-    if (confirm('Are you sure you want to delete?') == true) { //fix this later
+    if (confirm('Want to delete?') == true) { //fix this later
     return true;
     }
     return false;
@@ -94,15 +97,15 @@ function deletedBtn() {
 
 function renderFunction(tasks) {
     $('#listTable').empty();
-    let completedTask = 'not-completed';
+    let taskCompleted = 'not-completed';
     for (let i = 0; i < tasks.length; i += 1) {
     let task = tasks[i];
     if (task.completed === true) {
-        completedTask = 'completed';
+        taskCompleted = 'completed';
     }
-      // For each task, append a new row
+    // append to dom
     $('#listTable').append(`
-        <tr class='${completedTask}'>
+        <tr class='${taskCompleted}'>
             <td>${task.name}</td>
             <td>${tasks.date}</td>
             <td>${tasks.time}</td>
@@ -110,15 +113,15 @@ function renderFunction(tasks) {
             <td>${task.completed}</td>
             <td>
             <button data-id=${tasks[i].id}
-            data-completed="completed"
-            class="completed-btn">Task Completed ✅</button>
+            completedData="completed"
+            class="btnCompleted">Task Completed ✅</button>
             <button data-id=${tasks[i].id}
             data-delete="delete"
-            class="delete-btn">Delete ❌</button>
+            class="btnDelete">Delete ❌</button>
             </td>
         </tr>
         `);
-      // Reset completed task so we don't continuously render the wrong class
-    completedTask = 'not-completed';
+      // Reset completed 
+    taskCompleted = 'not-completed';
     }
 }

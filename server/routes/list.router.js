@@ -1,6 +1,6 @@
-const { query } = require('express');
+// const { query } = require('express');
 const express  = require('express')
-const { Pool } = require('pg');
+// const { Pool } = require('pg');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
@@ -19,10 +19,11 @@ router.get('/', (req, res) => {
 
 // Router POST request
 router.post('/', (req, res) => {
-    let tasks = req.body;
-    console.log('adding a task', tasks)
-    let queryText = `INSERT INTO "list" ("task", "date", "time", "notes") VALUES ($1, $2, $3, $4);`;
-    pool.query(queryText, [tasks.name, tasks.date, tasks.time, tasks.notes])
+    let tasksNew = req.body;
+    console.log(`adding a task`, tasksNew);
+    let queryText = `INSERT INTO "list" ("task", "date", "time", "notes") 
+        VALUES ($1, $2, $3, $4);`;
+    pool.query(queryText, [tasksNew.name, tasksNew.date, tasksNew.time, tasksNew.notes])
     .then((result)=>{
         res.sendStatus(201);
     }).catch((error)=>{
@@ -33,7 +34,7 @@ router.post('/', (req, res) => {
 
 // Router PUT request
 router.put('/:id', (req, res) => {
-    console.log('PUT request');
+    console.log('PUT request in router');
     let queryText = `UPDATE "list" SET "completed" = NOT "completed" where id = $1;`;
     let values = [req. params.id]
     pool.query(queryText, values)
