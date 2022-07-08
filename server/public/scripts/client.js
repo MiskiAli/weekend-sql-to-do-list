@@ -100,26 +100,20 @@ function renderFunction(tasks) {
     let taskCompleted = 'not-completed';
     for (let i = 0; i < tasks.length; i += 1) {
     let task = tasks[i];
-    if (task.completed === true) {
-        taskCompleted = 'class = "green"';
-        taskCompleted = 'completed';
-    }
-    else{
-        taskCompleted = 'class = "grey"';
-    }
+  
     // append to dom
     $('#listTable').append(`
-        <tr class='${taskCompleted}' data-task-id="${task.id}">
+        <tr class="colorChannge" class='${taskCompleted}' data-task-id="${task.id}">
 
-            <td>${task.task}</td>
+            <td  >${task.task}</td>
 
-            <td>${task.date}</td>
+            <td  >${task.date}</td>
 
-            <td>${task.time}</td>
+            <td  >${task.time}</td>
 
-            <td>${task.notes}</td>
+            <td >${task.notes}</td>
 
-            <td>${task.completed}</td>
+            <td  >${task.completed}</td>
 
             <td>
             <button data-id=${tasks[i].id}
@@ -131,6 +125,16 @@ function renderFunction(tasks) {
             </td>
         </tr>
         `);
+
+        if (task.completed === true) {
+            // taskCompleted = 'completed';
+            $('.colorChannge').css('background-color', 'green');
+        }
+        // return;
+        else if (task.completed === false) {
+            
+        }
+
       // Reset completed 
     taskCompleted = 'not-completed';
     }
