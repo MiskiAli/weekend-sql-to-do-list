@@ -2,7 +2,7 @@ const pg = require('pg');
 
 const Pool = pg.Pool;
 const pool = new Pool({
-    database: 'weekend-todo-list',
+    database: 'weekend-to-do-app',
     host: 'localhost',
     port: 5432,
     max: 10, // how many connections or queries at one time.
@@ -15,4 +15,4 @@ pool.on('error', (error)=>{
     console.log('error connecting to postgres', error)
 });
 
-module.exports = pool;
+module.exports = pool;ta
