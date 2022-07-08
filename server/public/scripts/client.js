@@ -40,11 +40,11 @@ function getTask() {
 }
 
 // POST request
-function addNewTask(tasks) {
+function addNewTask(tasksToAdd) {
     $.ajax({
     type: 'POST',
     url: '/tasks',
-    data: tasks,
+    data: tasksToAdd,
     })
     .then(function (response) {
         console.log('response from the server', response);
@@ -105,19 +105,25 @@ function renderFunction(tasks) {
     }
     // append to dom
     $('#listTable').append(`
-        <tr class='${taskCompleted}'>
-            <td>${task.name}</td>
-            <td>${tasks.date}</td>
-            <td>${tasks.time}</td>
-            <td>${tasks.notes}</td>
+        <tr class='${taskCompleted}' data-task-id="${task.id}">
+
+            <td>${task.task}</td>
+
+            <td>${task.date}</td>
+
+            <td>${task.time}</td>
+
+            <td>${task.notes}</td>
+
             <td>${task.completed}</td>
+
             <td>
             <button data-id=${tasks[i].id}
             completedData="completed"
             class="btnCompleted">Task Completed ✅</button>
             <button data-id=${tasks[i].id}
             data-delete="delete"
-            class="btnDelete">Delete ❌</button>
+            class="btnDelete">Delete 🚮</button>
             </td>
         </tr>
         `);
