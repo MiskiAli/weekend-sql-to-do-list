@@ -101,7 +101,11 @@ function renderFunction(tasks) {
     for (let i = 0; i < tasks.length; i += 1) {
     let task = tasks[i];
     if (task.completed === true) {
+        taskCompleted = 'class = "green"';
         taskCompleted = 'completed';
+    }
+    else{
+        taskCompleted = 'class = "grey"';
     }
     // append to dom
     $('#listTable').append(`

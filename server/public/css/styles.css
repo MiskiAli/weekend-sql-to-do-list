@@ -1,33 +1,90 @@
 body{
-    background-color: rgb(233, 202, 250);
+    background-image: linear-gradient(rgb(147, 210, 237), rgb(252, 184, 229), rgb(236, 178, 236));
     font-family: sans-serif;
 }
 header {
-    background-color:  rgb(233, 175, 242);
+    text-shadow:  -1px -1px 0 rgba(255, 235, 20, 0.767), 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;;
+    /* background-color:  rgb(233, 175, 242); */
     flex-flow: row wrap;
     display: flex;
     align-items:flex-start;
+    color: rgb(216, 94, 253);
+    font-family: fantasy;
+    font-size: large;
+
 }
 input{
 background-color: rgb(190, 220, 251);
+border: 2px solid rgb(255, 251, 42);
+border-radius: 8px;
+width: 150px;
+height: 30px;
+text-align: center;
 }
-table {
+/* table {
     border-collapse: collapse;
-}
+} */
 th, td {
     border: 1px solid black;
-    width: 15%;
-    padding: 10px;
+    width: 10%;
+    padding: 12px 15px;
 }
 
 th{
     background-color: rgb(126, 9, 162);
     color: rgb(253, 200, 247);
+    text-align: center;
 }
 
 tbody tr:nth-child(even){
     background-color: rgb(190, 220, 251);
 }
-button{
-    background-color: rgb(190, 220, 251);;
+#submit{
+    width: 90px;
+    height:30px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    background-color: rgb(190, 220, 251);
+    border: 2px solid rgb(255, 251, 42);
+}
+
+.btnCompleted{
+    width: 90px;
+    height:60px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid rgb(255, 251, 42);
+    background-color: rgb(190, 220, 251);
+}
+.btnDelete{
+    /* hover color: yellow; */
+    width: 60px;
+    height:60px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid rgb(255, 251, 42);
+    background-color: rgb(190, 220, 251);
+}
+
+#listTable{
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: center;
+    margin: left auto;
+    margin: right auto;
 }
