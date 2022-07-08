@@ -9,7 +9,7 @@ function onReady() {
 function clickHandler(){
 $('#submit').on('click', addToDoListBtn)
 $('#listTable').on('click', '.btnCompleted', completedBtn);
-$('#listTable').on('click', '.btnDelete', deleting); 
+$('#listTable').on('click', '.btnDelete', deletedBtn); 
 }
 function addToDoListBtn() {
     console.log('Add To do list button clicked');
